@@ -1,5 +1,7 @@
 # Laravel Tenant (Belongs to tenant)
 
+This package automatically scopes the queries to a tenant. Listens for a created events and set the tenant_id automatically.
+
 
 ## Installation
 
@@ -11,9 +13,17 @@ composer require jinas123/laravel-tenant
 
 ## Usage
 
+Add the `HasTenant` trait into your user model. Make sure to add a `tenant_id` column into your user table 
 ``` php
-// Usage description here
+use Jinas\LaravelTenant\Traits\HasTenant;
+
+class User extends Authenticatable 
+{
+    use HasTenant;
+}
 ```
+
+Any model that uses `HasTenant` Should include `tenant_id` in their database table.
 
 ### Testing
 
