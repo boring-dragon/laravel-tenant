@@ -1,5 +1,7 @@
 # Laravel Tenant (Belongs to tenant)
 
+[![StyleCI](https://github.styleci.io/repos/323338609/shield?branch=master)](https://github.styleci.io/repos/323338609?branch=master)
+
 This package automatically scopes the queries to a tenant. Listens for a created events and set the tenant_id automatically.
 
 
