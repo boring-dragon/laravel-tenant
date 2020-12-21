@@ -2,10 +2,10 @@
 
 namespace Jinas\LaravelTenant;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use Jinas\LaravelTenant\Listeners\SetTenantIdInSession;
+use Illuminate\Support\ServiceProvider;
 use Jinas\LaravelTenant\Listeners\ClearTenantIdFromSession;
+use Jinas\LaravelTenant\Listeners\SetTenantIdInSession;
 
 class LaravelTenantServiceProvider extends ServiceProvider
 {
@@ -25,8 +25,8 @@ class LaravelTenantServiceProvider extends ServiceProvider
         );
 
         $this->publishes([
-            __DIR__ .'/../database/migrations/create_tenants_table.php',
-            database_path('migrations/'.date('Y-m-d_His').'_create_tenants_table.php')
+            __DIR__.'/../database/migrations/create_tenants_table.php',
+            database_path('migrations/'.date('Y-m-d_His').'_create_tenants_table.php'),
         ]);
     }
 

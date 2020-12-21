@@ -1,4 +1,5 @@
 <?php
+
 namespace Jinas\LaravelTenant\Listeners;
 
 class ClearTenantIdFromSession

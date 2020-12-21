@@ -2,21 +2,19 @@
 
 namespace Jinas\LaravelTenant\Tests;
 
-
-use Orchestra\Testbench\TestCase;
+use Illuminate\Foundation\Auth\User;
 use Jinas\LaravelTenant\LaravelTenantServiceProvider;
 use Jinas\LaravelTenant\Models\Tenant;
-use Illuminate\Foundation\Auth\User;
 use Jinas\LaravelTenant\Traits\HasTenant;
+use Orchestra\Testbench\TestCase;
 
 class TenantTest extends TestCase
 {
-
     public function setUp(): void
     {
         parent::setUp();
 
-        require_once __DIR__ . '/../database/migrations/create_tenants_table.php';
+        require_once __DIR__.'/../database/migrations/create_tenants_table.php';
 
         (new \CreateTenantsTable())->up();
 
@@ -32,26 +30,26 @@ class TenantTest extends TestCase
     public function it_can_create_tenants()
     {
         $tenant = Tenant::create([
-            'name' => 'STO'
+            'name' => 'STO',
         ]);
 
         $this->assertTrue($tenant->exists);
     }
 
-     /** @test */
+    /** @test */
     public function it_can_associate_tenants()
     {
         Tenant::create([
-            'name' => 'STO'
+            'name' => 'STO',
         ]);
 
         $user = TestUser::create([
             'name' => 'Jinas',
             'email' => 'j@live.mv',
-            'password' => 'password'
+            'password' => 'password',
         ]);
 
-        $this->assertEquals("STO", $user->tenant->name);
+        $this->assertEquals('STO', $user->tenant->name);
     }
 }
 
@@ -63,17 +61,16 @@ class TestUser extends User
     //Testing
     protected $appends = ['tenant_id'];
     protected $table = 'users';
-    
+
     /**
-     * getTenantIdAttribute
-     * 
+     * getTenantIdAttribute.
+     *
      *  Accessor for testing. tenant ID
      *
      * @return void
      */
     public function getTenantIdAttribute()
     {
-
         return 1;
     }
 }

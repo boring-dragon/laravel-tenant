@@ -1,4 +1,5 @@
 <?php
+
 namespace Jinas\LaravelTenant\Models;
 
 use Illuminate\Database\Eloquent\Model;

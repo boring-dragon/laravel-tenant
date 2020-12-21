@@ -1,4 +1,5 @@
 <?php
+
 namespace Jinas\LaravelTenant\Listeners;
 
 class SetTenantIdInSession
@@ -21,6 +22,6 @@ class SetTenantIdInSession
      */
     public function handle($event)
     {
-         session()->put('tenant_id', $event->user->tenant_id);
+        session()->put('tenant_id', $event->user->tenant_id);
     }
 }
