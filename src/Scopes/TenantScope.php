@@ -1,4 +1,5 @@
 <?php
+
 namespace Jinas\LaravelTenant\Scopes;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -16,7 +17,7 @@ class TenantScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        if(session()->has('tenant_id')) {
+        if (session()->has('tenant_id')) {
             $builder->where('tenant_id', session()->get('tenant_id'));
         }
     }
